@@ -1,0 +1,155 @@
+//*** Files to Import ***//
+
+@import "variables";
+@import "animations";
+
+//*** Loading Page ***//
+
+.loadingBar {
+    height: 100vh;
+    width: 100vw;
+    background: $darkGrey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 99;
+}
+
+.loadingBar.hidden {
+  animation: fadeout 3s;
+  animation-fill-mode: forwards;
+}
+
+.ring {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  height: 300px;
+  background: transparent;
+  border: 3px solid #808080;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 2.5em;
+  color: $lightBlue;
+  text-transform: uppercase;
+  text-shadow: 0 0 10px $lightBlue;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.ring:before {
+  content: '';
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  width: 100%;
+  height: 100%;
+  border: 3px solid transparent;
+  border-top: 3px solid $lightBlue;
+  border-right: 3px solid $lightBlue;
+  border-radius: 50%;
+  animation: animateCircle 2s linear infinite;
+}
+
+#loaderSpan {
+  display: block;
+  position: absolute;
+  top: cacl(50% -2px);
+  left: 50%;
+  width: 50%;
+  height: 4px;
+  background: transparent;
+  transform-origin: left;
+  animation: animate 2s linear infinite;
+}
+
+#loaderSpan:before {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: $lightBlue;
+  top: -6px;
+  right: -8px;
+  box-shadow: 0 0 20px $lightBlue;
+}
+
+//*** Main Page Styles ***//
+html {
+  height: 100%;
+  width: 100vw;
+}
+
+body {
+  margin: 0;
+  font-family: "Courier New", Courier, Arial, Helvetica, sans-serif;
+  background: #f4f4f4;
+  color: $darkGrey;
+  font-size: 1.2em;
+  line-height: 1.5;
+  height: 100%;
+  width: 100%;
+}
+
+.sceneContainer {
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  background-image: url('../img/background.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.pagewrapper {
+  height: 100%;
+  width: 100vw;
+}
+
+#webSlideCaption {
+  color: navy;
+}
+
+.jumbotron {
+  background-color: $darkGrey !important;
+  color: #f4f4f4 !important;
+  margin-bottom: 100px !important;
+}
+
+.jumboHeading {
+  font-size: 3.5em;
+}
+
+.jumboPara {
+  font-size: 1.5rem;
+  margin-bottom: 60px;
+}
+
+.sectionHeading {
+  font-size: 2.5rem;
+  margin-bottom: 50px;
+}
+
+#servicesSection {
+  margin-bottom: 80px;
+}
+
+#pricingSection {
+  margin-bottom: 60px;
+}
+
+footer {
+  text-align: center;
+  background: $darkGrey;
+  color: #f4f4f4;
+  padding: 20px 0 20px 0;
+}
+//*** Media Queries ***//
+
+@media ( max-width: 500px) {
+  .loadingBar {
+    visibility: hidden;
+  }
+}
